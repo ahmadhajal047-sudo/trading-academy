@@ -29,9 +29,6 @@ export default function RootLayout({
               <Link href="/courses/1" className="hover:text-emerald-400 transition-all text-slate-300">
                 🎓 كورس التداول
               </Link>
-              <Link href="/admin" className="bg-emerald-600/20 border border-emerald-500/40 text-emerald-400 hover:bg-emerald-600 hover:text-white px-3 py-1.5 rounded-xl transition-all">
-                🛠️ لوحة الأدمن
-              </Link>
             </nav>
           </div>
         </header>
