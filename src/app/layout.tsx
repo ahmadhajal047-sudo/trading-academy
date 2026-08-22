@@ -3,7 +3,12 @@
 import './globals.css';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { createClient } from '@supabase/supabase-js';
+
+// إعداد Supabase
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export default function RootLayout({
   children,
@@ -11,12 +16,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const [isAdmin, setIsAdmin] = useState(false);
-  const supabase = createClientComponentClient();
 
   useEffect(() => {
-    const checkAdmin = async () => {
+    // 1. فحص الحساب الحالي فور تحميل الصفحة
+    const checkAdminUser = async () => {
       const { data: { user } } = await supabase.auth.getUser();
-      // ضع إيميلك هنا تماماً كما هو في Supabase
       if (user && user.email === 'ahmadhajal047@gmail.com') {
         setIsAdmin(true);
       } else {
@@ -24,21 +28,26 @@ export default function RootLayout({
       }
     };
 
-    checkAdmin();
+    checkAdminUser();
 
-    const { data: authListener } = supabase.auth.onAuthStateChange(() => {
-      checkAdmin();
+    // 2. الاستماع لأي تغيير في تسجيل الدخول/الخروج
+    const { data: authListener } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (session?.user?.email === 'ahmadhajal047@gmail.com') {
+        setIsAdmin(true);
+      } else {
+        setIsAdmin(false);
+      }
     });
 
     return () => {
       authListener.subscription.unsubscribe();
     };
-  }, [supabase]);
+  }, []);
 
   return (
     <html lang="ar" dir="rtl">
       <body className="bg-slate-950 text-white font-sans antialiased">
-        {/* شريط التنقل العلوي الرئيسي */}
+        {/* الشريط العلوي الاسود */}
         <header className="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-40">
           <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
             <div className="flex items-center gap-2">
@@ -53,10 +62,13 @@ export default function RootLayout({
               <Link href="/courses/1" className="hover:text-emerald-400 transition-all text-slate-300">
                 🎓 كورس التداول
               </Link>
-              
-              {/* يظهر هذا الزر فقط وفقط إذا تم الدخول بإيميلك */}
+
+              {/* لن يظهر هذا الزر إلا إذا كان الإيميل هو إيميلك حصراً */}
               {isAdmin && (
-                <Link href="/admin" className="bg-emerald-600/20 border border-emerald-500/40 text-emerald-400 hover:bg-emerald-600 hover:text-white px-3 py-1.5 rounded-xl transition-all">
+                <Link 
+                  href="/admin" 
+                  className="bg-emerald-600/20 border border-emerald-500/40 text-emerald-400 hover:bg-emerald-600 hover:text-white px-3 py-1.5 rounded-xl transition-all"
+                >
                   🛠️ لوحة الأدمن
                 </Link>
               )}
