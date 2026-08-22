@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { createClient } from '@/lib/supabase'; // تأكد من مطابقة مسار ملف supabase لديك
 
 interface Question {
   id: string;
@@ -34,7 +36,46 @@ interface Course {
   sections: Section[];
 }
 
+// اكتب إيميلك الخاص بالأدمن هنا
+const ADMIN_EMAIL = "ahmadhajal047@gmail.com"; 
+
 export default function AdminDashboard() {
+  const router = useRouter();
+  const [loading, setLoading] = useState(true);
+  const [authorized, setAuthorized] = useState(false);
+
+  // التحقق من صلاحيات الأدمن عند فتح الصفحة
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const supabase = createClient();
+        const { data: { user } } = await supabase.auth.getUser();
+
+        // 1. إذا لم يكن مسجلاً، وجهه لصفحة الدخول
+        if (!user) {
+          router.replace('/login');
+          return;
+        }
+
+        // 2. إذا لم يكن الإيميل مطابقاً لإيميل الأدمن، وجهه للداشبورد العادي
+        if (user.email !== ADMIN_EMAIL) {
+          router.replace('/dashboard');
+          return;
+        }
+
+        // المستخدم أدمن بالفعل
+        setAuthorized(true);
+      } catch (err) {
+        console.error("Auth check failed:", err);
+        router.replace('/login');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    checkAuth();
+  }, [router]);
+
   const [courses, setCourses] = useState<Course[]>(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('app_courses');
@@ -216,6 +257,18 @@ export default function AdminDashboard() {
       window.location.reload();
     }
   };
+
+  // شاشة الانتظار أثناء التحقق من الهوية
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-slate-950 flex justify-center items-center text-emerald-400 font-sans">
+        <p className="animate-pulse text-lg">جاري التحقق من الصلاحيات...</p>
+      </div>
+    );
+  }
+
+  // منع عرض الصفحة إذا لم يكن أدمن
+  if (!authorized) return null;
 
   return (
     <div className="min-h-screen bg-slate-950 text-white p-6 md:p-10 font-sans" dir="rtl">
