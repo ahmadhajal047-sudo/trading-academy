@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { createClient } from '@/lib/supabase'; // تأكد من مطابقة مسار ملف supabase لديك
+import { supabase } from '@/lib/supabase'; // تم التصحيح: استيراد المتغير supabase المباشر
 
 interface Question {
   id: string;
@@ -48,7 +48,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const supabase = createClient();
+        // تم التصحيح: استخدام كائن supabase المباشر
         const { data: { user } } = await supabase.auth.getUser();
 
         // 1. إذا لم يكن مسجلاً، وجهه لصفحة الدخول
@@ -358,7 +358,7 @@ export default function AdminDashboard() {
 
                       {sec.quiz && (
                         <div className="bg-amber-950/20 border border-amber-500/20 p-3 rounded-lg text-xs text-amber-300 flex justify-between items-center">
-                          <span>📝 عدد أسئلة الاختبار: **{qCount} أسئلة**</span>
+                          <span>📝 عدد أسئلة الاختبار: <strong>{qCount} أسئلة</strong></span>
                           <span className="bg-amber-500/20 text-amber-300 px-2 py-1 rounded font-bold">
                             نسبة النجاح المطلوبة: {sec.quiz.passingScore}%
                           </span>
