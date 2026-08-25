@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'next/navigation';
+import { supabase } from '@/lib/supabase';
 
 interface Question {
   id: string;
@@ -28,31 +30,32 @@ interface Section {
 }
 
 export default function StudentCoursesPage() {
+  const params = useParams();
+  const courseId = params?.id as string;
+
+  const [courseTitle, setCourseTitle] = useState<string>('');
   const [sections, setSections] = useState<Section[]>([]);
+  const [loading, setLoading] = useState(true);
+
   const [unlockedSections, setUnlockedSections] = useState<string[]>([]);
   const [activeSectionId, setActiveSectionId] = useState<string>('');
   const [activeVideoUrl, setActiveVideoUrl] = useState<string>('');
-  
+
   const [showQuizModal, setShowQuizModal] = useState<boolean>(false);
   const [currentQIndex, setCurrentQIndex] = useState<number>(0);
   const [userAnswers, setUserAnswers] = useState<{ [key: number]: number }>({});
   const [quizResult, setQuizResult] = useState<{ passed: boolean; score: number } | null>(null);
 
-  // دالة تحويل أي رابط يوتيوب إلى رابط Embed شغال 100%
   const formatYoutubeEmbedUrl = (url: string) => {
     if (!url) return '';
-    
-    // إذا كان الرابط أصلاً صيغة embed
+
     if (url.includes('youtube.com/embed/')) return url;
 
     let videoId = '';
-    
-    // روابط short: youtu.be/VIDEO_ID
+
     if (url.includes('youtu.be/')) {
       videoId = url.split('youtu.be/')[1]?.split('?')[0];
-    } 
-    // روابط عادية: youtube.com/watch?v=VIDEO_ID
-    else if (url.includes('watch?v=')) {
+    } else if (url.includes('watch?v=')) {
       videoId = url.split('watch?v=')[1]?.split('&')[0];
     }
 
@@ -64,23 +67,38 @@ export default function StudentCoursesPage() {
   };
 
   useEffect(() => {
-    const savedCourses = localStorage.getItem('app_courses');
-    if (savedCourses) {
-      try {
-        const parsed = JSON.parse(savedCourses);
-        if (parsed[0]?.sections) {
-          setSections(parsed[0].sections);
-          if (parsed[0].sections[0]?.lessons[0]?.videoUrl) {
-            setActiveVideoUrl(parsed[0].sections[0].lessons[0].videoUrl);
-          }
-          if (parsed[0].sections[0]?.id) {
-            setActiveSectionId(parsed[0].sections[0].id);
-            setUnlockedSections([parsed[0].sections[0].id]);
-          }
-        }
-      } catch (e) {}
-    }
-  }, []);
+    const fetchCourse = async () => {
+      if (!courseId) return;
+
+      const { data, error } = await supabase
+        .from('courses')
+        .select('*')
+        .eq('id', courseId)
+        .single();
+
+      if (error || !data) {
+        console.error('خطأ في جلب الكورس:', error);
+        setLoading(false);
+        return;
+      }
+
+      setCourseTitle(data.title || '');
+      const fetchedSections: Section[] = Array.isArray(data.sections) ? data.sections : [];
+      setSections(fetchedSections);
+
+      if (fetchedSections[0]?.lessons[0]?.videoUrl) {
+        setActiveVideoUrl(fetchedSections[0].lessons[0].videoUrl);
+      }
+      if (fetchedSections[0]?.id) {
+        setActiveSectionId(fetchedSections[0].id);
+        setUnlockedSections([fetchedSections[0].id]);
+      }
+
+      setLoading(false);
+    };
+
+    fetchCourse();
+  }, [courseId]);
 
   const activeSection = sections.find((s) => s.id === activeSectionId) || sections[0];
 
@@ -123,6 +141,14 @@ export default function StudentCoursesPage() {
     }
   };
 
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center font-sans p-6" dir="rtl">
+        <p className="text-slate-400 animate-pulse text-lg">جاري تحميل الكورس...</p>
+      </div>
+    );
+  }
+
   if (sections.length === 0) {
     return (
       <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center font-sans p-6" dir="rtl">
@@ -141,16 +167,15 @@ export default function StudentCoursesPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-white font-sans p-4 md:p-8" dir="rtl">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
-        
-        {/* مشغل الفيديو والدروس */}
+
         <div className="lg:col-span-2 space-y-6">
           <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden p-4">
             <div className="aspect-video bg-black rounded-xl overflow-hidden relative border border-slate-800">
               {activeVideoUrl ? (
-                <iframe 
-                  src={formatYoutubeEmbedUrl(activeVideoUrl)} 
-                  title="شرح الدرس" 
-                  className="w-full h-full" 
+                <iframe
+                  src={formatYoutubeEmbedUrl(activeVideoUrl)}
+                  title="شرح الدرس"
+                  className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
@@ -172,9 +197,8 @@ export default function StudentCoursesPage() {
           </div>
         </div>
 
-        {/* قائمة الفصول */}
         <div className="space-y-4">
-          <h3 className="text-xl font-bold text-white border-b border-slate-800 pb-3">محتوى كورس التداول</h3>
+          <h3 className="text-xl font-bold text-white border-b border-slate-800 pb-3">{courseTitle}</h3>
           {sections.map((sec) => {
             const isUnlocked = unlockedSections.includes(sec.id);
             const isActive = activeSectionId === sec.id;
@@ -220,7 +244,6 @@ export default function StudentCoursesPage() {
 
       </div>
 
-      {/* نافذة الاختبار التفاعلية */}
       {showQuizModal && currentQuiz && currentQuestion && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 w-full max-w-lg space-y-5">
@@ -230,7 +253,7 @@ export default function StudentCoursesPage() {
                 السؤال {currentQIndex + 1} من {questionsList.length}
               </span>
             </div>
-            
+
             {!quizResult ? (
               <>
                 <p className="text-white font-medium text-base">{currentQuestion.question}</p>

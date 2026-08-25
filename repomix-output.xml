@@ -1,0 +1,2543 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+public/
+  file.svg
+  globe.svg
+  next.svg
+  vercel.svg
+  window.svg
+src/
+  app/
+    admin/
+      page.tsx
+    ai-analyzer/
+      page.tsx
+    api/
+      chat/
+        route.ts
+    community/
+      page.tsx
+    courses/
+      [id]/
+        page.tsx
+      page.tsx
+    dashboard/
+      page.tsx
+    journal/
+      page.tsx
+    login/
+      page.tsx
+    register/
+      page.tsx
+    favicon.ico
+    globals.css
+    layout.tsx
+    page.tsx
+  lib/
+    supabase.ts
+  middleware.ts
+.gitignore
+AGENTS.md
+CLAUDE.md
+deno.lock
+eslint.config.mjs
+next.config.ts
+package.json
+postcss.config.mjs
+README.md
+tsconfig.json
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="deno.lock">
+{
+  "version": "5",
+  "remote": {
+    "https://edge.netlify.com/": "fd941d61d88673d5f28aab283fb86fcc50f08a3bc80ee5470498fcfa88c65cfb",
+    "https://edge.netlify.com/bootstrap/config.ts": "6a2ce0e544e15e8f8883a5c18da5948e37fd0f2619f68cb31f3af53c51817025",
+    "https://edge.netlify.com/bootstrap/context.ts": "e97240232121e2f369f6546ce961490f34d961ea1ea54be3ff09633e3f08373f",
+    "https://edge.netlify.com/bootstrap/cookie.ts": "8b0baae708989ca183c6f3b4ab3d029e6abcbc2e43f93edeb0ff447b3bbc3a05",
+    "https://edge.netlify.com/bootstrap/edge_function.ts": "b8253e86aa83c67341f5cfedeba5049d77fbf84dcab7eceff7566b7728ae9b39",
+    "https://edge.netlify.com/bootstrap/globals/types.ts": "eaa6148ded3121d8dee62dd91c86e7fe76601df0f3ca8d7962243a30f4c8935f"
+  },
+  "workspace": {
+    "packageJson": {
+      "dependencies": [
+        "npm:@google/genai@^2.18.0",
+        "npm:@supabase/auth-helpers-nextjs@0.15",
+        "npm:@supabase/ssr@~0.12.4",
+        "npm:@supabase/supabase-js@^2.112.3",
+        "npm:@tailwindcss/postcss@4",
+        "npm:@types/node@20",
+        "npm:@types/react-dom@19",
+        "npm:@types/react@19",
+        "npm:eslint-config-next@16.3.2",
+        "npm:eslint@9",
+        "npm:next@16.3.2",
+        "npm:react-dom@19.2.8",
+        "npm:react@19.2.8",
+        "npm:tailwindcss@4",
+        "npm:typescript@5"
+      ]
+    }
+  }
+}
+</file>
+
+<file path="public/file.svg">
+<svg fill="none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 13.5V5.41a1 1 0 0 0-.3-.7L9.8.29A1 1 0 0 0 9.08 0H1.5v13.5A2.5 2.5 0 0 0 4 16h8a2.5 2.5 0 0 0 2.5-2.5m-1.5 0v-7H8v-5H3v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1M9.5 5V2.12L12.38 5zM5.13 5h-.62v1.25h2.12V5zm-.62 3h7.12v1.25H4.5zm.62 3h-.62v1.25h7.12V11z" clip-rule="evenodd" fill="#666" fill-rule="evenodd"/></svg>
+</file>
+
+<file path="public/globe.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.27 14.1a6.5 6.5 0 0 0 3.67-3.45q-1.24.21-2.7.34-.31 1.83-.97 3.1M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.48-1.52a7 7 0 0 1-.96 0H7.5a4 4 0 0 1-.84-1.32q-.38-.89-.63-2.08a40 40 0 0 0 3.92 0q-.25 1.2-.63 2.08a4 4 0 0 1-.84 1.31zm2.94-4.76q1.66-.15 2.95-.43a7 7 0 0 0 0-2.58q-1.3-.27-2.95-.43a18 18 0 0 1 0 3.44m-1.27-3.54a17 17 0 0 1 0 3.64 39 39 0 0 1-4.3 0 17 17 0 0 1 0-3.64 39 39 0 0 1 4.3 0m1.1-1.17q1.45.13 2.69.34a6.5 6.5 0 0 0-3.67-3.44q.65 1.26.98 3.1M8.48 1.5l.01.02q.41.37.84 1.31.38.89.63 2.08a40 40 0 0 0-3.92 0q.25-1.2.63-2.08a4 4 0 0 1 .85-1.32 7 7 0 0 1 .96 0m-2.75.4a6.5 6.5 0 0 0-3.67 3.44 29 29 0 0 1 2.7-.34q.31-1.83.97-3.1M4.58 6.28q-1.66.16-2.95.43a7 7 0 0 0 0 2.58q1.3.27 2.95.43a18 18 0 0 1 0-3.44m.17 4.71q-1.45-.12-2.69-.34a6.5 6.5 0 0 0 3.67 3.44q-.65-1.27-.98-3.1" fill="#666"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs></svg>
+</file>
+
+<file path="public/next.svg">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 394 80"><path fill="#000" d="M262 0h68.5v12.7h-27.2v66.6h-13.6V12.7H262V0ZM149 0v12.7H94v20.4h44.3v12.6H94v21h55v12.6H80.5V0h68.7zm34.3 0h-17.8l63.8 79.4h17.9l-32-39.7 32-39.6h-17.9l-23 28.6-23-28.6zm18.3 56.7-9-11-27.1 33.7h17.8l18.3-22.7z"/><path fill="#000" d="M81 79.3 17 0H0v79.3h13.6V17l50.2 62.3H81Zm252.6-.4c-1 0-1.8-.4-2.5-1s-1.1-1.6-1.1-2.6.3-1.8 1-2.5 1.6-1 2.6-1 1.8.3 2.5 1a3.4 3.4 0 0 1 .6 4.3 3.7 3.7 0 0 1-3 1.8zm23.2-33.5h6v23.3c0 2.1-.4 4-1.3 5.5a9.1 9.1 0 0 1-3.8 3.5c-1.6.8-3.5 1.3-5.7 1.3-2 0-3.7-.4-5.3-1s-2.8-1.8-3.7-3.2c-.9-1.3-1.4-3-1.4-5h6c.1.8.3 1.6.7 2.2s1 1.2 1.6 1.5c.7.4 1.5.5 2.4.5 1 0 1.8-.2 2.4-.6a4 4 0 0 0 1.6-1.8c.3-.8.5-1.8.5-3V45.5zm30.9 9.1a4.4 4.4 0 0 0-2-3.3 7.5 7.5 0 0 0-4.3-1.1c-1.3 0-2.4.2-3.3.5-.9.4-1.6 1-2 1.6a3.5 3.5 0 0 0-.3 4c.3.5.7.9 1.3 1.2l1.8 1 2 .5 3.2.8c1.3.3 2.5.7 3.7 1.2a13 13 0 0 1 3.2 1.8 8.1 8.1 0 0 1 3 6.5c0 2-.5 3.7-1.5 5.1a10 10 0 0 1-4.4 3.5c-1.8.8-4.1 1.2-6.8 1.2-2.6 0-4.9-.4-6.8-1.2-2-.8-3.4-2-4.5-3.5a10 10 0 0 1-1.7-5.6h6a5 5 0 0 0 3.5 4.6c1 .4 2.2.6 3.4.6 1.3 0 2.5-.2 3.5-.6 1-.4 1.8-1 2.4-1.7a4 4 0 0 0 .8-2.4c0-.9-.2-1.6-.7-2.2a11 11 0 0 0-2.1-1.4l-3.2-1-3.8-1c-2.8-.7-5-1.7-6.6-3.2a7.2 7.2 0 0 1-2.4-5.7 8 8 0 0 1 1.7-5 10 10 0 0 1 4.3-3.5c2-.8 4-1.2 6.4-1.2 2.3 0 4.4.4 6.2 1.2 1.8.8 3.2 2 4.3 3.4 1 1.4 1.5 3 1.5 5h-5.8z"/></svg>
+</file>
+
+<file path="public/vercel.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1155 1000"><path d="m577.3 0 577.4 1000H0z" fill="#fff"/></svg>
+</file>
+
+<file path="public/window.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 2.5h13v10a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1zM0 1h16v11.5a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 0 12.5zm3.75 4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5M7 4.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m1.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5" fill="#666"/></svg>
+</file>
+
+<file path="src/app/ai-analyzer/page.tsx">
+'use client';
+
+import { useState } from 'react';
+import Link from 'next/link';
+
+interface Message {
+  role: 'user' | 'assistant';
+  content: string;
+}
+
+export default function AIAnalyzerPage() {
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      role: 'assistant',
+      content: 'أهلاً بك! أنا مساعد التداول الذكي 🤖. كيف يمكنني مساعدتك اليوم؟ يمكنك سؤالي عن إدارة المخاطر، تحليل الأسواق، أو استراتيجيات التداول.',
+    },
+  ]);
+  const [input, setInput] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleSend = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!input.trim() || loading) return;
+
+    const userMsg = input.trim();
+    const updatedMessages: Message[] = [...messages, { role: 'user', content: userMsg }];
+
+    setInput('');
+    setMessages(updatedMessages);
+    setLoading(true);
+
+    try {
+      // إرسال الرسائل إلى السيرفر الخاص بنا
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          messages: updatedMessages.map((m) => ({
+            role: m.role,
+            content: m.content,
+          })),
+        }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.reply) {
+        setMessages((prev) => [...prev, { role: 'assistant', content: data.reply }]);
+      } else {
+        setMessages((prev) => [
+          ...prev,
+          { role: 'assistant', content: `حدث خطأ: ${data.error || 'يرجى المحاولة لاحقاً'}` },
+        ]);
+      }
+    } catch (err) {
+      setMessages((prev) => [
+        ...prev,
+        { role: 'assistant', content: 'تعذر الاتصال بالسيرفر. تأكد من إعداد المفتاح بشكل صحيح.' },
+      ]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col md:flex-row font-sans dir-rtl" dir="rtl">
+      {/* القائمة الجانبية */}
+      <aside className="w-full md:w-64 bg-slate-900 border-b md:border-b-0 md:border-l border-slate-800 p-6 flex flex-col justify-between">
+        <div>
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-10 h-10 rounded-xl bg-purple-600 flex items-center justify-center text-white font-bold text-xl">
+              🤖
+            </div>
+            <div>
+              <span className="font-bold text-lg text-white block leading-tight">محلل الذكاء</span>
+              <span className="text-xs text-purple-400 font-medium">AI Trading Analyst</span>
+            </div>
+          </div>
+
+          <nav className="space-y-2 text-sm">
+            <Link href="/dashboard" className="block px-4 py-2.5 text-slate-400 hover:bg-slate-800 rounded-xl transition">
+              📊 لوحة التحكم
+            </Link>
+
+            <Link href="/courses" className="block px-4 py-2.5 text-slate-400 hover:bg-slate-800 rounded-xl transition">
+              📚 الكورسات التعليمية
+            </Link>
+
+            <Link href="/journal" className="block px-4 py-2.5 text-slate-400 hover:bg-slate-800 rounded-xl transition">
+              📓 دفتر التداول
+            </Link>
+
+            <Link href="/ai-analyzer" className="block px-4 py-2.5 bg-purple-600/20 text-purple-300 font-medium rounded-xl">
+              🤖 محلل الذكاء الاصطناعي
+            </Link>
+          </nav>
+        </div>
+      </aside>
+
+      {/* واجهة الشات الحقيقية */}
+      <main className="flex-1 flex flex-col h-screen p-4 md:p-6">
+        <div className="mb-4">
+          <h1 className="text-xl font-bold text-white">مساعد التداول الذكي 🤖</h1>
+          <p className="text-xs text-slate-400">استفسر عن التحليلات، إدارة المخاطر، واستراتيجيات التداول</p>
+        </div>
+
+        {/* منطقة الرسائل */}
+        <div className="flex-1 bg-slate-900 border border-slate-800 rounded-2xl p-4 overflow-y-auto space-y-4 mb-4">
+          {messages.map((msg, idx) => (
+            <div
+              key={idx}
+              className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+            >
+              <div
+                className={`max-w-[80%] rounded-2xl p-4 text-sm leading-relaxed ${
+                  msg.role === 'user'
+                    ? 'bg-purple-600 text-white rounded-br-none'
+                    : 'bg-slate-800 text-slate-200 border border-slate-700/50 rounded-bl-none'
+                }`}
+              >
+                {msg.content}
+              </div>
+            </div>
+          ))}
+
+          {loading && (
+            <div className="flex justify-start">
+              <div className="bg-slate-800 text-slate-400 border border-slate-700/50 rounded-2xl p-4 text-sm animate-pulse">
+                جاري التفكير والتحليل... ⏳
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* مربع إدخال النص */}
+        <form onSubmit={handleSend} className="flex gap-2">
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="اكتب سؤالك للمحلل الذكي..."
+            className="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500"
+          />
+          <button
+            type="submit"
+            disabled={loading || !input.trim()}
+            className="bg-purple-600 hover:bg-purple-500 text-white font-medium px-6 py-3 rounded-xl text-sm transition disabled:opacity-50"
+          >
+            إرسال
+          </button>
+        </form>
+      </main>
+    </div>
+  );
+}
+</file>
+
+<file path="src/app/api/chat/route.ts">
+import { NextResponse } from 'next/server';
+
+export async function POST(req: Request) {
+  try {
+    const { messages } = await req.json();
+    const lastMsg = messages[messages.length - 1]?.content || '';
+    const text = lastMsg.toLowerCase();
+
+    // 1. معالجة حسابات الذهب الرياضية (حساب الأرباح واللوت تلقائياً)
+    const numbers = lastMsg.match(/\d+(\.\d+)?/g)?.map(Number) || [];
+    
+    if ((text.includes('ذهب') || text.includes('xau') || text.includes('شراء') || text.includes('بيع')) && numbers.length >= 3) {
+      // استخراج المعطيات (اللوت، سعر الدخول، سعر الخروج)
+      let lot = numbers.find(n => n < 10) || 0.1;
+      let prices = numbers.filter(n => n >= 100).sort((a, b) => a - b);
+      
+      if (prices.length >= 2) {
+        const entry = prices[0];
+        const exit = prices[1];
+        const diff = exit - entry; // فارق السعر بالدولار
+        
+        // حساب الربح للذهب: (الفارق بالدولار) × (حجم اللوت × 100)
+        const profit = diff * (lot * 100);
+        const pips = diff * 10;
+
+        const responseText = `
+**تحليل وحساب الصفقة بدقة:**
+
+* **نوع الأداة:** الذهب (XAUUSD)
+* **حجم اللوت (Lot Size):** ${lot}
+* **سعر الدخول:** $${entry}
+* **سعر الخروج:** $${exit}
+* **فارق الحركة:** $${diff.toFixed(2)} (${pips.toFixed(0)} نقطة / Pips)
+
+---
+
+**النتيجة المالية:**
+* **صافي الربح المتوقع:** **$${profit.toFixed(2)}**
+
+*(ملاحظة: لوت 1.0 قياسي في الذهب يعادل $100 لكل $1 تحرك في السعر، ولوت ${lot} يعادل $${(lot * 100).toFixed(0)} لكل $1 تحرك).*
+        `.trim();
+
+        return NextResponse.json({ reply: responseText });
+      }
+    }
+
+    // 2. معالجة أسئلة شركات التمويل (Prop Firms)
+    if (text.includes('حساب') || text.includes('ممول') || text.includes('اختبار') || text.includes('ftmo') || text.includes('prop')) {
+      const propPlan = `
+**خطة التعامل مع حسابات الشركات الممولة (Prop Firms):**
+
+* **إدارة المخاطر:**
+  * المخاطرة في الصفقة الواحدة: **0.5% إلى 1%** من رأس المال كحد أقصى.
+  * الحد الأقصى للخسارة اليومية (Daily Drawdown): عادة **5%**.
+  * الحد الأقصى للتراجع الكلي (Max Drawdown): عادة **10%**.
+
+* **أهداف الأرباح (Profit Targets):**
+  * المرحلة الأولى: **8% - 10%**.
+  * المرحلة الثانية: **5%**.
+
+* **نصيحة التنفيذ:** ركز على إدارة حجم اللوت والتوقف فور خسارة صفقتين متتاليتين لحماية الحساب.
+      `.trim();
+      return NextResponse.json({ reply: propPlan });
+    }
+
+    // 3. معالجة أسئلة إدارة المخاطر واللوت العامة
+    if (text.includes('لوت') || text.includes('مخاطر') || text.includes('راس المال') || text.includes('رأس المال')) {
+      const riskPlan = `
+**قواعد إدارة رأس المال وحساب اللوت:**
+
+* **حساب $100:** أقصى حجم لوت هو **0.01** (المخاطرة بـ $2 إلى $3 لكل صفقة).
+* **حساب $1,000:** حجم اللوت المناسب هو **0.03 إلى 0.05** (المخاطرة بـ $10 إلى $20 لكل صفقة).
+* **حساب $10,000:** حجم اللوت المناسب هو **0.20 إلى 0.50** حسب نسبة الاستوب لوز (Stop Loss).
+
+**القاعدة الذهبية:** لا تخاطر بأكثر من 1% إلى 2% من إجمالي حسابك في أي صفقة منفردة.
+      `.trim();
+      return NextResponse.json({ reply: riskPlan });
+    }
+
+    // 4. الرد المباشر الشامل لأي سؤال عام آخر
+    const defaultResponse = `
+أهلاً بك! أنا مساعد التداول الذكي الخاص بك.
+
+يمكنك طرح أي سؤال محدد وسيتم حسابه وإجابتك فوراً:
+1. **حساب الأرباح والخسائر:** (مثال: دخلت شراء ذهب بلوت 0.2 من 2300 لـ 2310 كم أربح؟)
+2. **إدارة اللوت ورأس المال:** (مثال: كيف أحسب اللوت المناسب لحساب 500$؟)
+3. **شركات التمويل:** (شروط وقوانين FTMO و FundingTraders).
+    `.trim();
+
+    return NextResponse.json({ reply: defaultResponse });
+
+  } catch (error: any) {
+    return NextResponse.json(
+      { reply: 'حدث خطأ في النظام الداخلي، يرجى كتابة سؤالك مرة أخرى.' },
+      { status: 500 }
+    );
+  }
+}
+</file>
+
+<file path="src/app/community/page.tsx">
+import Link from "next/link";
+
+export default function CommunityPage() {
+  const posts = [
+    {
+      id: 1,
+      author: "أحمد المتداول",
+      avatar: "A",
+      time: "منذ ساعتين",
+      title: "نظرة تحليليّة على زوج EUR/USD للأسبوع القادم",
+      content: "نعتقد أن منطقة 1.0850 تشكل منطقة دعم قوية جداً. في حال الإغلاق فوق 1.0900 سنشهد استهدافاً للمستويات العالية.",
+      likes: 24,
+      comments: 7,
+    },
+    {
+      id: 2,
+      author: "سارة خبير تداول",
+      avatar: "S",
+      time: "منذ 5 ساعات",
+      title: "نصيحة اليوم: عدم التداول أثناء الأخبار عالية التأثير",
+      content: "إدارة المخاطر هي المفتاح الأساسي للاستمرار في هذا السوق. دائماً ضع أهدافك ولا تلاحق الشموع القوية.",
+      likes: 45,
+      comments: 12,
+    },
+  ];
+
+  const leaderboard = [
+    { rank: 1, name: "سامر العلي", profit: "+34.5%", avatar: "🥇" },
+    { rank: 2, name: "عمر فاروق", profit: "+28.2%", avatar: "🥈" },
+    { rank: 3, name: "خالد منصور", profit: "+21.0%", avatar: "🥉" },
+  ];
+
+  return (
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col md:flex-row font-sans">
+      {/* Sidebar */}
+      <aside className="w-full md:w-64 bg-slate-900 border-b md:border-b-0 md:border-l border-slate-800 p-6 flex flex-col justify-between">
+        <div>
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-blue-500/30">
+              T
+            </div>
+            <span className="font-bold text-lg text-white">منصة المتداولين</span>
+          </div>
+
+          <nav className="space-y-2">
+            <Link href="/dashboard" className="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800/60 rounded-xl font-medium transition">
+              <span>📊</span> لوحة التحكم
+            </Link>
+            <Link href="/academy" className="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800/60 rounded-xl font-medium transition">
+              <span>📚</span> الأكاديمية
+            </Link>
+            <Link href="/community" className="flex items-center gap-3 px-4 py-3 bg-blue-600 text-white rounded-xl font-medium shadow-lg shadow-blue-600/20">
+              <span>💬</span> المجتمع والمسابقات
+            </Link>
+          </nav>
+        </div>
+
+        <div className="pt-6 border-t border-slate-800 mt-6">
+          <Link href="/login" className="flex items-center gap-3 px-4 py-2.5 text-red-400 hover:bg-red-500/10 rounded-xl text-sm font-semibold transition">
+            <span>🚪</span> تسجيل الخروج
+          </Link>
+        </div>
+      </aside>
+
+      {/* Main Content */}
+      <main className="flex-1 p-6 md:p-10 space-y-8 max-w-7xl mx-auto w-full">
+        <div>
+          <h1 className="text-3xl font-bold text-white mb-2">مجتمع المتداولين والمسابقات 💬🏆</h1>
+          <p className="text-slate-400 text-sm">شارك تحليلاتك، تناقش مع الأعضاء، وتابع متصدري مسابقة هذا الشهر.</p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Feed / منشورات المجتمع */}
+          <div className="lg:col-span-2 space-y-6">
+            {/* Create Post Card */}
+            <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl space-y-4">
+              <textarea
+                rows={3}
+                placeholder="شارك تحليلك أو فكرتك مع المجتمع..."
+                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-blue-500 transition resize-none"
+              ></textarea>
+              <div className="flex justify-end">
+                <button className="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-5 py-2 rounded-xl text-sm shadow-lg shadow-blue-600/30 transition">
+                  نشر المنشور
+                </button>
+              </div>
+            </div>
+
+            {/* Posts List */}
+            {posts.map((post) => (
+              <div key={post.id} className="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-blue-600/20 text-blue-400 font-bold flex items-center justify-center border border-blue-500/30">
+                    {post.avatar}
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white text-sm">{post.author}</h4>
+                    <span className="text-xs text-slate-500">{post.time}</span>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-base font-bold text-white mb-1">{post.title}</h3>
+                  <p className="text-slate-300 text-sm leading-relaxed">{post.content}</p>
+                </div>
+
+                <div className="flex items-center gap-6 pt-2 border-t border-slate-800/60 text-xs text-slate-400">
+                  <button className="hover:text-blue-400 flex items-center gap-1 transition">
+                    <span>👍</span> {post.likes} إعجاب
+                  </button>
+                  <button className="hover:text-blue-400 flex items-center gap-1 transition">
+                    <span>💬</span> {post.comments} تعليق
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Right Panel / المسابقات والترتيب */}
+          <div className="space-y-6">
+            {/* Top Traders Leaderboard */}
+            <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-4">
+              <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                <h3 className="font-bold text-white text-base">متصدرو مسابقة الشهر 🏆</h3>
+                <span className="text-xs text-emerald-400 font-semibold">جاري التحديث</span>
+              </div>
+
+              <div className="space-y-3">
+                {leaderboard.map((item) => (
+                  <div key={item.rank} className="flex items-center justify-between p-3 bg-slate-950 rounded-xl border border-slate-800/50">
+                    <div className="flex items-center gap-3">
+                      <span className="text-lg">{item.avatar}</span>
+                      <span className="font-semibold text-sm text-white">{item.name}</span>
+                    </div>
+                    <span className="text-xs font-bold text-emerald-400">{item.profit}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}
+</file>
+
+<file path="src/app/courses/[id]/page.tsx">
+'use client';
+
+import React, { useState, useEffect } from 'react';
+
+interface Question {
+  id: string;
+  question: string;
+  options: string[];
+  correctAnswer: number;
+}
+
+interface Quiz {
+  passingScore: number;
+  questions: Question[];
+}
+
+interface Lesson {
+  id: string;
+  title: string;
+  videoUrl: string;
+}
+
+interface Section {
+  id: string;
+  title: string;
+  lessons: Lesson[];
+  quiz?: Quiz;
+}
+
+export default function StudentCoursesPage() {
+  const [sections, setSections] = useState<Section[]>([]);
+  const [unlockedSections, setUnlockedSections] = useState<string[]>([]);
+  const [activeSectionId, setActiveSectionId] = useState<string>('');
+  const [activeVideoUrl, setActiveVideoUrl] = useState<string>('');
+  
+  const [showQuizModal, setShowQuizModal] = useState<boolean>(false);
+  const [currentQIndex, setCurrentQIndex] = useState<number>(0);
+  const [userAnswers, setUserAnswers] = useState<{ [key: number]: number }>({});
+  const [quizResult, setQuizResult] = useState<{ passed: boolean; score: number } | null>(null);
+
+  // دالة تحويل أي رابط يوتيوب إلى رابط Embed شغال 100%
+  const formatYoutubeEmbedUrl = (url: string) => {
+    if (!url) return '';
+    
+    // إذا كان الرابط أصلاً صيغة embed
+    if (url.includes('youtube.com/embed/')) return url;
+
+    let videoId = '';
+    
+    // روابط short: youtu.be/VIDEO_ID
+    if (url.includes('youtu.be/')) {
+      videoId = url.split('youtu.be/')[1]?.split('?')[0];
+    } 
+    // روابط عادية: youtube.com/watch?v=VIDEO_ID
+    else if (url.includes('watch?v=')) {
+      videoId = url.split('watch?v=')[1]?.split('&')[0];
+    }
+
+    if (videoId) {
+      return `https://www.youtube.com/embed/${videoId}`;
+    }
+
+    return url;
+  };
+
+  useEffect(() => {
+    const savedCourses = localStorage.getItem('app_courses');
+    if (savedCourses) {
+      try {
+        const parsed = JSON.parse(savedCourses);
+        if (parsed[0]?.sections) {
+          setSections(parsed[0].sections);
+          if (parsed[0].sections[0]?.lessons[0]?.videoUrl) {
+            setActiveVideoUrl(parsed[0].sections[0].lessons[0].videoUrl);
+          }
+          if (parsed[0].sections[0]?.id) {
+            setActiveSectionId(parsed[0].sections[0].id);
+            setUnlockedSections([parsed[0].sections[0].id]);
+          }
+        }
+      } catch (e) {}
+    }
+  }, []);
+
+  const activeSection = sections.find((s) => s.id === activeSectionId) || sections[0];
+
+  const handleOpenQuiz = () => {
+    setCurrentQIndex(0);
+    setUserAnswers({});
+    setQuizResult(null);
+    setShowQuizModal(true);
+  };
+
+  const handleSelectOption = (optionIndex: number) => {
+    setUserAnswers({ ...userAnswers, [currentQIndex]: optionIndex });
+  };
+
+  const handleSubmitQuiz = () => {
+    if (!activeSection?.quiz || !Array.isArray(activeSection.quiz.questions)) return;
+
+    const questions = activeSection.quiz.questions;
+    let correctCount = 0;
+
+    questions.forEach((q, index) => {
+      if (userAnswers[index] === q.correctAnswer) {
+        correctCount++;
+      }
+    });
+
+    const finalScore = questions.length > 0 ? Math.round((correctCount / questions.length) * 100) : 0;
+    const passed = finalScore >= (activeSection.quiz.passingScore || 70);
+
+    setQuizResult({ passed, score: finalScore });
+
+    if (passed) {
+      const currentIndex = sections.findIndex((s) => s.id === activeSectionId);
+      if (currentIndex + 1 < sections.length) {
+        const nextSectionId = sections[currentIndex + 1].id;
+        if (!unlockedSections.includes(nextSectionId)) {
+          setUnlockedSections([...unlockedSections, nextSectionId]);
+        }
+      }
+    }
+  };
+
+  if (sections.length === 0) {
+    return (
+      <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center font-sans p-6" dir="rtl">
+        <div className="bg-slate-900 border border-slate-800 p-8 rounded-2xl text-center space-y-4">
+          <h2 className="text-xl font-bold text-emerald-400">لا توجد دروس مضافة بعد! 🎓</h2>
+          <p className="text-slate-400 text-sm">ادخل إلى لوحة الأدمن وأضف فصولاً وفيديوهات جديدة لتظهر لك هنا فوراً.</p>
+        </div>
+      </div>
+    );
+  }
+
+  const currentQuiz = activeSection?.quiz;
+  const questionsList = currentQuiz && Array.isArray(currentQuiz.questions) ? currentQuiz.questions : [];
+  const currentQuestion = questionsList[currentQIndex];
+
+  return (
+    <div className="min-h-screen bg-slate-950 text-white font-sans p-4 md:p-8" dir="rtl">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        {/* مشغل الفيديو والدروس */}
+        <div className="lg:col-span-2 space-y-6">
+          <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden p-4">
+            <div className="aspect-video bg-black rounded-xl overflow-hidden relative border border-slate-800">
+              {activeVideoUrl ? (
+                <iframe 
+                  src={formatYoutubeEmbedUrl(activeVideoUrl)} 
+                  title="شرح الدرس" 
+                  className="w-full h-full" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              ) : (
+                <div className="w-full h-full flex items-center justify-center text-slate-500 text-sm">اختر درساً لمشاهدته</div>
+              )}
+            </div>
+            <div className="mt-4 flex justify-between items-center">
+              <h2 className="text-xl font-bold text-emerald-400">{activeSection?.title}</h2>
+              {questionsList.length > 0 && (
+                <button
+                  onClick={handleOpenQuiz}
+                  className="bg-amber-500 hover:bg-amber-400 text-black px-5 py-2.5 rounded-xl font-bold transition-all text-sm"
+                >
+                  📝 تقديم اختبار الفصل ({questionsList.length} أسئلة)
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* قائمة الفصول */}
+        <div className="space-y-4">
+          <h3 className="text-xl font-bold text-white border-b border-slate-800 pb-3">محتوى كورس التداول</h3>
+          {sections.map((sec) => {
+            const isUnlocked = unlockedSections.includes(sec.id);
+            const isActive = activeSectionId === sec.id;
+
+            return (
+              <div
+                key={sec.id}
+                className={`border rounded-2xl p-4 transition-all ${
+                  isUnlocked
+                    ? isActive ? 'bg-slate-900 border-emerald-500' : 'bg-slate-900/60 border-slate-800'
+                    : 'bg-slate-950/40 border-slate-900 opacity-60'
+                }`}
+              >
+                <div className="flex justify-between items-center mb-3">
+                  <h4 className="font-bold text-sm text-slate-200">{sec.title}</h4>
+                  <span>{isUnlocked ? '🔓' : '🔒'}</span>
+                </div>
+
+                {isUnlocked ? (
+                  <div className="space-y-2 pr-2 border-r-2 border-emerald-500/40">
+                    {sec.lessons.map((lesson) => (
+                      <button
+                        key={lesson.id}
+                        onClick={() => {
+                          setActiveSectionId(sec.id);
+                          if (lesson.videoUrl) setActiveVideoUrl(lesson.videoUrl);
+                        }}
+                        className="w-full text-right text-xs p-2 rounded-lg bg-slate-950/80 hover:bg-slate-800 text-slate-300 flex justify-between items-center transition-all"
+                      >
+                        <span>🎥 {lesson.title}</span>
+                      </button>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-xs text-amber-400/80 mt-1">
+                    مغلق 🔒 (يتطلب اجتياز اختبار الفصل السابق بنسبة {sec.quiz?.passingScore || 70}%)
+                  </p>
+                )}
+              </div>
+            );
+          })}
+        </div>
+
+      </div>
+
+      {/* نافذة الاختبار التفاعلية */}
+      {showQuizModal && currentQuiz && currentQuestion && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 w-full max-w-lg space-y-5">
+            <div className="flex justify-between items-center border-b border-slate-800 pb-3">
+              <h3 className="text-lg font-bold text-emerald-400">اختبار اجتياز الفصل</h3>
+              <span className="text-xs bg-slate-800 px-3 py-1 rounded-full text-slate-300 font-bold">
+                السؤال {currentQIndex + 1} من {questionsList.length}
+              </span>
+            </div>
+            
+            {!quizResult ? (
+              <>
+                <p className="text-white font-medium text-base">{currentQuestion.question}</p>
+                <div className="space-y-2">
+                  {currentQuestion.options.map((opt, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => handleSelectOption(idx)}
+                      className={`w-full text-right p-3 rounded-xl border text-sm transition-all ${
+                        userAnswers[currentQIndex] === idx
+                          ? 'bg-emerald-950 border-emerald-500 text-emerald-300 font-bold'
+                          : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'
+                      }`}
+                    >
+                      {opt}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="flex justify-between items-center pt-4 border-t border-slate-800">
+                  <button
+                    disabled={currentQIndex === 0}
+                    onClick={() => setCurrentQIndex(currentQIndex - 1)}
+                    className="px-4 py-2 bg-slate-800 hover:bg-slate-700 disabled:opacity-40 rounded-xl text-xs"
+                  >
+                    السابق
+                  </button>
+
+                  {currentQIndex < questionsList.length - 1 ? (
+                    <button
+                      disabled={userAnswers[currentQIndex] === undefined}
+                      onClick={() => setCurrentQIndex(currentQIndex + 1)}
+                      className="px-5 py-2 bg-emerald-600 hover:bg-emerald-500 disabled:opacity-40 font-bold text-white rounded-xl text-xs"
+                    >
+                      التالي
+                    </button>
+                  ) : (
+                    <button
+                      disabled={Object.keys(userAnswers).length < questionsList.length}
+                      onClick={handleSubmitQuiz}
+                      className="px-5 py-2 bg-amber-500 hover:bg-amber-400 text-black font-bold rounded-xl text-xs"
+                    >
+                      إنهاء وإرسال الاختبار
+                    </button>
+                  )}
+                </div>
+              </>
+            ) : (
+              <div className="text-center space-y-4 py-4">
+                {quizResult.passed ? (
+                  <>
+                    <div className="text-5xl">🎉</div>
+                    <h4 className="text-xl font-bold text-emerald-400">مبروك! لقد اجتزت الاختبار بنسبة {quizResult.score}%</h4>
+                    <p className="text-xs text-slate-300">تم فتح الفصل التالي بنجاح ويمكنك الانتقال إليه الآن.</p>
+                  </>
+                ) : (
+                  <>
+                    <div className="text-5xl">❌</div>
+                    <h4 className="text-xl font-bold text-rose-500">للأسف، لم تتجاوز نسبة النجاح ({quizResult.score}%)</h4>
+                    <p className="text-xs text-slate-300">النسبة المطلوبة هي {currentQuiz.passingScore}%. أعد مراجعة الدروس وحاول مجدداً.</p>
+                  </>
+                )}
+                <button onClick={() => setShowQuizModal(false)} className="px-6 py-2.5 bg-slate-800 hover:bg-slate-700 font-bold text-white rounded-xl text-xs">إغلاق</button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+</file>
+
+<file path="src/app/courses/page.tsx">
+'use client';
+
+import { useEffect, useState } from 'react';
+import { supabase } from '@/lib/supabase';
+import Link from 'next/link';
+
+interface Course {
+  id: string;
+  title: string;
+  description: string;
+  level: string;
+  image_url: string;
+}
+
+export default function CoursesPage() {
+  const [courses, setCourses] = useState<Course[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      const { data, error } = await supabase.from('courses').select('*');
+      if (error) {
+        console.error('Error fetching courses:', error);
+      } else {
+        setCourses(data || []);
+      }
+      setLoading(false);
+    };
+
+    fetchCourses();
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-slate-950 text-slate-100 p-6 md:p-10 dir-rtl" dir="rtl">
+      {/* الهيدر وزر العودة */}
+      <div className="max-w-6xl mx-auto mb-10 flex justify-between items-center">
+        <div>
+          <h1 className="text-3xl font-bold text-white mb-2">الكورسات التعليمية 📚</h1>
+          <p className="text-slate-400 text-sm">اختر الدورات التدريبية وابدأ في تطوير مهاراتك بالتداول.</p>
+        </div>
+        <Link 
+          href="/dashboard"
+          className="bg-slate-900 border border-slate-800 text-slate-300 px-4 py-2 rounded-xl text-sm hover:bg-slate-800 transition"
+        >
+          ← العودة للوحة التحكم
+        </Link>
+      </div>
+
+      {/* قائمة الكورسات */}
+      <div className="max-w-6xl mx-auto">
+        {loading ? (
+          <div className="text-center py-20 text-slate-500 animate-pulse">جاري تحميل الكورسات...</div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {courses.map((course) => (
+              <div key={course.id} className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden flex flex-col hover:border-slate-700 transition">
+                {course.image_url && (
+                  <img src={course.image_url} alt={course.title} className="w-full h-48 object-cover" />
+                )}
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <span className="text-xs font-semibold px-3 py-1 bg-indigo-500/10 text-indigo-400 rounded-full border border-indigo-500/20">
+                      {course.level}
+                    </span>
+                    <h3 className="text-lg font-bold text-white mt-3 mb-2">{course.title}</h3>
+                    <p className="text-slate-400 text-sm line-clamp-2 mb-6">{course.description}</p>
+                  </div>
+                  <Link 
+  href={`/courses/${course.id}`}
+  className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-2.5 rounded-xl transition text-sm text-center block"
+>
+  ابدأ الدورة الآن
+</Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="src/app/dashboard/page.tsx">
+'use client';
+
+import { useEffect, useState } from 'react';
+import { supabase } from '@/lib/supabase';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+
+export default function DashboardPage() {
+  const [userEmail, setUserEmail] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
+
+  useEffect(() => {
+    async function getUser() {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) {
+        router.push('/login');
+      } else {
+        setUserEmail(user.email ?? null);
+      }
+      setLoading(false);
+    }
+    getUser();
+  }, [router]);
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    router.push('/login');
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center dir-rtl" dir="rtl">
+        <p className="text-lg font-medium">جاري تحميل لوحة التحكم...</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col md:flex-row font-sans dir-rtl" dir="rtl">
+      {/* القائمة الجانبية */}
+      <aside className="w-full md:w-64 bg-slate-900 border-b md:border-b-0 md:border-l border-slate-800 p-6 flex flex-col justify-between">
+        <div>
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-purple-500 flex items-center justify-center text-white font-bold">
+              M
+            </div>
+            <div>
+              <span className="font-bold text-lg text-white block leading-tight">منصة التداول</span>
+              <span className="text-xs text-indigo-400 font-medium">Academy & Journal</span>
+            </div>
+          </div>
+
+          <nav className="space-y-2">
+            <Link href="/dashboard" className="flex items-center gap-3 px-4 py-3 bg-indigo-600/20 text-indigo-300 font-medium rounded-xl transition">
+              <span>📊</span>
+              <span>لوحة التحكم</span>
+            </Link>
+
+            <Link href="/courses" className="flex items-center gap-3 px-4 py-3 text-slate-400 hover:bg-slate-800/50 rounded-xl transition">
+              <span>📚</span>
+              <span>الكورسات التعليمية</span>
+            </Link>
+
+            <Link href="/journal" className="flex items-center gap-3 px-4 py-3 text-slate-400 hover:bg-slate-800/50 rounded-xl transition">
+              <span>📓</span>
+              <span>دفتر التداول</span>
+            </Link>
+
+            <Link href="/ai-analyzer" className="flex items-center gap-3 px-4 py-3 text-slate-400 hover:bg-slate-800/50 rounded-xl transition">
+              <span>🤖</span>
+              <span>محلل الذكاء الاصطناعي</span>
+            </Link>
+          </nav>
+        </div>
+
+        <button
+          onClick={handleLogout}
+          className="w-full mt-6 bg-red-500/10 hover:bg-red-500/20 text-red-400 font-medium py-3 rounded-xl transition text-sm flex items-center justify-center gap-2 border border-red-500/20"
+        >
+          <span>تسجيل الخروج</span>
+        </button>
+      </aside>
+
+      {/* المحتوى الرئيسي */}
+      <main className="flex-1 p-6 md:p-10 overflow-y-auto">
+        <header className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+          <div>
+            <h1 className="text-2xl md:text-3xl font-bold text-white flex items-center gap-2">
+              أهلاً بك مجدداً 👋
+            </h1>
+            <p className="text-slate-400 text-sm mt-1">مواظبتك اليومية هي طريقك للاحتراف.</p>
+          </div>
+
+          {userEmail && (
+            <div className="bg-slate-900 border border-slate-800 rounded-xl px-4 py-2 text-xs text-slate-300 self-start md:self-auto">
+              {userEmail}
+            </div>
+          )}
+        </header>
+
+        {/* كروت الإحصائيات */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+            <span className="text-xs text-slate-400 block mb-2">الكورسات المكتملة</span>
+            <span className="text-3xl font-bold text-white">0 / 4</span>
+          </div>
+
+          <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+            <span className="text-xs text-slate-400 block mb-2">الصفقات المسجلة</span>
+            <span className="text-3xl font-bold text-white">0 صفقة</span>
+          </div>
+
+          <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+            <span className="text-xs text-slate-400 block mb-2">تقييم الالتزام</span>
+            <span className="text-3xl font-bold text-emerald-400">100%</span>
+          </div>
+        </div>
+
+        {/* كارت بدء التعلم */}
+        <div className="bg-gradient-to-r from-indigo-900/40 to-slate-900 border border-indigo-500/30 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <h2 className="text-xl font-bold text-white mb-2">ابدأ رحلتك التعليمية الآن 🚀</h2>
+            <p className="text-slate-300 text-sm max-w-xl">
+              استكشف الدروس الأولى واكتسب الأساسيات لبناء استراتيجية تداول ناجحة وإدارة مخاطر صارمة.
+            </p>
+          </div>
+          <Link
+            href="/courses"
+            className="whitespace-nowrap bg-indigo-600 hover:bg-indigo-500 text-white font-medium px-6 py-3 rounded-xl transition text-sm shadow-lg shadow-indigo-600/30"
+          >
+            تصفح الكورسات
+          </Link>
+        </div>
+      </main>
+    </div>
+  );
+}
+</file>
+
+<file path="src/app/journal/page.tsx">
+'use client';
+
+import { useEffect, useState } from 'react';
+import { supabase } from '@/lib/supabase';
+import Link from 'next/link';
+
+interface Trade {
+  id: string;
+  symbol: string;
+  type: string;
+  entry_price: number;
+  exit_price: number;
+  lot_size: number;
+  profit_loss: number;
+  risk_reward: number;
+  notes: string;
+  created_at: string;
+}
+
+export default function JournalPage() {
+  const [trades, setTrades] = useState<Trade[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // نموذج إضافة صفقة جديدة
+  const [symbol, setSymbol] = useState('XAUUSD');
+  const [type, setType] = useState('BUY');
+  const [entryPrice, setEntryPrice] = useState('');
+  const [exitPrice, setExitPrice] = useState('');
+  const [lotSize, setLotSize] = useState('0.10');
+  const [profitLoss, setProfitLoss] = useState('');
+  const [riskReward, setRiskReward] = useState('2.0');
+  const [notes, setNotes] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+
+  const fetchTrades = async () => {
+    const { data, error } = await supabase
+      .from('trades')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (!error && data) {
+      setTrades(data);
+    }
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    fetchTrades();
+  }, []);
+
+  const handleAddTrade = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitting(true);
+
+    const { data: { user } } = await supabase.auth.getUser();
+
+    if (!user) {
+      alert('يرجى تسجيل الدخول أولاً');
+      setSubmitting(false);
+      return;
+    }
+
+    const { error } = await supabase.from('trades').insert([
+      {
+        user_id: user.id,
+        symbol: symbol.toUpperCase(),
+        type,
+        entry_price: parseFloat(entryPrice),
+        exit_price: parseFloat(exitPrice),
+        lot_size: parseFloat(lotSize),
+        profit_loss: parseFloat(profitLoss),
+        risk_reward: parseFloat(riskReward),
+        notes,
+      },
+    ]);
+
+    if (error) {
+      alert('حدث خطأ أثناء إضافة الصفقة: ' + error.message);
+    } else {
+      // إعادة ضبط النموذج وتحديث القائمة
+      setProfitLoss('');
+      setEntryPrice('');
+      setExitPrice('');
+      setNotes('');
+      fetchTrades();
+    }
+    setSubmitting(false);
+  };
+
+  // إحصائيات الدفتر الحسابية التلقائية
+  const totalTrades = trades.length;
+  const winningTrades = trades.filter((t) => t.profit_loss > 0).length;
+  const winRate = totalTrades > 0 ? ((winningTrades / totalTrades) * 100).toFixed(1) : '0';
+  const netPnL = trades.reduce((acc, t) => acc + Number(t.profit_loss), 0).toFixed(2);
+  const avgRR = totalTrades > 0 ? (trades.reduce((acc, t) => acc + Number(t.risk_reward), 0) / totalTrades).toFixed(1) : '0';
+
+  return (
+    <div className="min-h-screen bg-slate-950 text-slate-100 p-6 md:p-10 dir-rtl" dir="rtl">
+      {/* الهيدر */}
+      <div className="max-w-6xl mx-auto mb-8 flex justify-between items-center">
+        <div>
+          <h1 className="text-3xl font-bold text-white mb-2">دفتر التداول الرقمي 📓</h1>
+          <p className="text-slate-400 text-sm">دّون صفقاتك وراقب إحصائياتك لتطوير استراتيجيتك.</p>
+        </div>
+        <Link
+          href="/dashboard"
+          className="bg-slate-900 border border-slate-800 text-slate-300 px-4 py-2 rounded-xl text-sm hover:bg-slate-800 transition"
+        >
+          ← العودة للوحة التحكم
+        </Link>
+      </div>
+
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* نموذج إضافة صفقة */}
+        <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl h-fit">
+          <h2 className="text-lg font-bold text-white mb-4 border-b border-slate-800 pb-3">تسجيل صفقة جديدة</h2>
+          <form onSubmit={handleAddTrade} className="space-y-4">
+            <div>
+              <label className="text-xs text-slate-400 mb-1 block">الزوج / الأداة المالية</label>
+              <input
+                type="text"
+                required
+                value={symbol}
+                onChange={(e) => setSymbol(e.target.value)}
+                placeholder="مثال: XAUUSD"
+                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-indigo-500"
+              />
+            </div>
+
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className="text-xs text-slate-400 mb-1 block">نوع الصفقة</label>
+                <select
+                  value={type}
+                  onChange={(e) => setType(e.target.value)}
+                  className="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-indigo-500"
+                >
+                  <option value="BUY">شراء (BUY)</option>
+                  <option value="SELL">بيع (SELL)</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="text-xs text-slate-400 mb-1 block">حجم اللوت (Lot)</label>
+                <input
+                  type="number"
+                  step="0.01"
+                  required
+                  value={lotSize}
+                  onChange={(e) => setLotSize(e.target.value)}
+                  className="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-indigo-500"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className="text-xs text-slate-400 mb-1 block">سعر الدخول</label>
+                <input
+                  type="number"
+                  step="any"
+                  required
+                  value={entryPrice}
+                  onChange={(e) => setEntryPrice(e.target.value)}
+                  placeholder="2035.50"
+                  className="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-indigo-500"
+                />
+              </div>
+
+              <div>
+                <label className="text-xs text-slate-400 mb-1 block">سعر الخروج</label>
+                <input
+                  type="number"
+                  step="any"
+                  required
+                  value={exitPrice}
+                  onChange={(e) => setExitPrice(e.target.value)}
+                  placeholder="2042.10"
+                  className="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-indigo-500"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className="text-xs text-slate-400 mb-1 block">الربح/الخسارة ($)</label>
+                <input
+                  type="number"
+                  step="any"
+                  required
+                  value={profitLoss}
+                  onChange={(e) => setProfitLoss(e.target.value)}
+                  placeholder="مثال: 150 أو -50"
+                  className="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-indigo-500"
+                />
+              </div>
+
+              <div>
+                <label className="text-xs text-slate-400 mb-1 block">نسبة المخاطرة R:R</label>
+                <input
+                  type="number"
+                  step="0.1"
+                  required
+                  value={riskReward}
+                  onChange={(e) => setRiskReward(e.target.value)}
+                  placeholder="2.0"
+                  className="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-indigo-500"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="text-xs text-slate-400 mb-1 block">ملاحظات / سبب الدخول</label>
+              <textarea
+                rows={2}
+                value={notes}
+                onChange={(e) => setNotes(e.target.value)}
+                placeholder="كسر ترند على فريم 15 دقيقة..."
+                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-indigo-500"
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={submitting}
+              className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-3 rounded-xl transition text-sm disabled:opacity-50"
+            >
+              {submitting ? 'جاري الحفظ...' : '+ إضافة الصفقة'}
+            </button>
+          </form>
+        </div>
+
+        {/* عرض الإحصائيات وجدول الصفقات */}
+        <div className="lg:col-span-2 flex flex-col gap-6">
+          {/* كروت الإحصائيات التلقائية */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div className="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
+              <span className="text-slate-400 text-xs">إجمالي الصفقات</span>
+              <h3 className="text-2xl font-bold text-white mt-1">{totalTrades}</h3>
+            </div>
+            <div className="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
+              <span className="text-slate-400 text-xs">نسبة النجاح (Win Rate)</span>
+              <h3 className="text-2xl font-bold text-indigo-400 mt-1">{winRate}%</h3>
+            </div>
+            <div className="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
+              <span className="text-slate-400 text-xs">صافي الأرباح</span>
+              <h3 className={`text-2xl font-bold mt-1 ${Number(netPnL) >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                ${netPnL}
+              </h3>
+            </div>
+            <div className="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
+              <span className="text-slate-400 text-xs">متوسط R:R</span>
+              <h3 className="text-2xl font-bold text-amber-400 mt-1">1:{avgRR}</h3>
+            </div>
+          </div>
+
+          {/* جدول الصفقات */}
+          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+            <h2 className="text-lg font-bold text-white mb-4">سجل الصفقات</h2>
+            {loading ? (
+              <p className="text-slate-500 text-sm animate-pulse">جاري التحميل...</p>
+            ) : trades.length === 0 ? (
+              <p className="text-slate-500 text-sm py-8 text-center">لا توجد صفقات مسجلة بعد. ابدأ بإضافة صفتك الأولى!</p>
+            ) : (
+              <div className="overflow-x-auto">
+                <table className="w-full text-right text-sm">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400 text-xs">
+                      <th className="pb-3">الزوج</th>
+                      <th className="pb-3">النوع</th>
+                      <th className="pb-3">اللوت</th>
+                      <th className="pb-3">الدخول/الخروج</th>
+                      <th className="pb-3">الربح/الخسارة</th>
+                      <th className="pb-3">R:R</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50">
+                    {trades.map((trade) => (
+                      <tr key={trade.id} className="hover:bg-slate-800/30">
+                        <td className="py-3 font-semibold text-white">{trade.symbol}</td>
+                        <td className="py-3">
+                          <span className={`text-xs px-2 py-0.5 rounded font-bold ${trade.type === 'BUY' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-red-500/10 text-red-400'}`}>
+                            {trade.type}
+                          </span>
+                        </td>
+                        <td className="py-3 text-slate-300">{trade.lot_size}</td>
+                        <td className="py-3 text-slate-400 text-xs">
+                          {trade.entry_price} ← {trade.exit_price}
+                        </td>
+                        <td className={`py-3 font-bold ${trade.profit_loss >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                          {trade.profit_loss >= 0 ? `+$${trade.profit_loss}` : `-$${Math.abs(trade.profit_loss)}`}
+                        </td>
+                        <td className="py-3 text-amber-400">1:{trade.risk_reward}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="src/app/register/page.tsx">
+"use client";
+
+import { useState } from "react";
+import { supabase } from "@/lib/supabase";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+
+export default function RegisterPage() {
+  const router = useRouter();
+  const [formData, setFormData] = useState({
+    fullName: "",
+    username: "",
+    email: "",
+    password: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const handleRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setErrorMsg("");
+
+    const { data, error } = await supabase.auth.signUp({
+      email: formData.email,
+      password: formData.password,
+      options: {
+        data: {
+          full_name: formData.fullName,
+          username: formData.username,
+          role: "user", // بشكل افتراضي كل حساب جديد هو متداول عادي
+        },
+      },
+    });
+
+    if (error) {
+      setErrorMsg(error.message);
+      setLoading(false);
+    } else {
+      router.push("/dashboard");
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-slate-950 p-6 font-sans">
+      <div className="w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl p-8 shadow-2xl">
+        <div className="text-center mb-8">
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-blue-500/30 mx-auto mb-4">
+            T
+          </div>
+          <h2 className="text-2xl font-bold text-white mb-2">إنشاء حساب جديد</h2>
+          <p className="text-sm text-slate-400">انضم مجاناً لأكاديمية ومجتمع المتداولين</p>
+        </div>
+
+        {errorMsg && (
+          <div className="bg-red-500/10 border border-red-500/20 text-red-400 text-xs p-3 rounded-xl mb-4 text-center">
+            {errorMsg}
+          </div>
+        )}
+
+        <form onSubmit={handleRegister} className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-slate-300 mb-1.5">الاسم الكامل</label>
+            <input
+              type="text"
+              placeholder="أحمد محمد"
+              value={formData.fullName}
+              onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+              className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500 transition"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-slate-300 mb-1.5">اسم المستخدم (Username)</label>
+            <input
+              type="text"
+              placeholder="ahmed_trader"
+              value={formData.username}
+              onChange={(e) => setFormData({ ...formData, username: e.target.value })}
+              className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500 transition"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-slate-300 mb-1.5">البريد الإلكتروني</label>
+            <input
+              type="email"
+              placeholder="name@example.com"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500 transition"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-slate-300 mb-1.5">كلمة المرور</label>
+            <input
+              type="password"
+              placeholder="••••••••"
+              value={formData.password}
+              onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+              className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500 transition"
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 rounded-xl shadow-lg shadow-blue-600/30 transition duration-200 mt-4 disabled:opacity-50"
+          >
+            {loading ? "جاري إنشاء الحساب..." : "إنشاء الحساب"}
+          </button>
+        </form>
+
+        <p className="text-center text-sm text-slate-400 mt-6">
+          لديك حساب بالفعل؟{" "}
+          <Link href="/login" className="text-blue-400 font-semibold hover:underline">
+            تسجيل الدخول
+          </Link>
+        </p>
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="src/app/globals.css">
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+</file>
+
+<file path=".gitignore">
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Local Netlify folder
+.netlify
+</file>
+
+<file path="AGENTS.md">
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->
+</file>
+
+<file path="CLAUDE.md">
+@AGENTS.md
+</file>
+
+<file path="eslint.config.mjs">
+import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
+
+const eslintConfig = defineConfig([
+  ...nextVitals,
+  ...nextTs,
+  // Override default ignores of eslint-config-next.
+  globalIgnores([
+    // Default ignores of eslint-config-next:
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+  ]),
+]);
+
+export default eslintConfig;
+</file>
+
+<file path="postcss.config.mjs">
+const config = {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+
+export default config;
+</file>
+
+<file path="README.md">
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+</file>
+
+<file path="src/app/login/page.tsx">
+'use client';
+import { useState } from 'react'
+import { createClient } from '@supabase/supabase-js'
+
+// 1. تصحيح رابط الميزتين والدخول
+const supabaseUrl = 'https://rshfjebmkwhpodjjmfiw.supabase.co'
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJzaGZqZWJta3docG9kamptZml3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODczNDExMDMsImV4cCI6MjEwMjkxNzEwM30.YleAKAxrr38GUthpTGiAjs5m6ONeXi1923Ed9YqB8Yw'
+export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+
+export default function AuthPage() {
+  const [isSignUp, setIsSignUp] = useState(false)
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [fullName, setFullName] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [message, setMessage] = useState('')
+
+  const handleAuth = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setLoading(true)
+    setMessage('')
+
+    if (isSignUp) {
+      // عملية إنشاء حساب جديد مع الاسم الكامل
+      const { error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: { full_name: fullName }
+        }
+      })
+      if (error) setMessage(error.message)
+      else setMessage('تم إنشاء الحساب بنجاح! تفقد بريدك الإلكتروني للتأكيد.')
+    } else {
+      // عملية تسجيل الدخول
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password
+      })
+      if (error) setMessage(error.message)
+      else window.location.href = '/dashboard' // أو المسار الذي تريده بعد الدخول
+    }
+    setLoading(false)
+  }
+
+  return (
+    <div style={{ maxWidth: '400px', margin: '50px auto', padding: '20px', textAlign: 'right', direction: 'rtl' }}>
+      <h2>{isSignUp ? 'إنشاء حساب جديد' : 'تسجيل الدخول'}</h2>
+      
+      <form onSubmit={handleAuth}>
+        {isSignUp && (
+          <div style={{ marginBottom: '15px' }}>
+            <label>الاسم الكامل:</label>
+            <input 
+              type="text" 
+              required 
+              value={fullName} 
+              onChange={(e) => setFullName(e.target.value)} 
+              style={{ width: '100%', padding: '8px', marginTop: '5px' }}
+            />
+          </div>
+        )}
+
+        <div style={{ marginBottom: '15px' }}>
+          <label>البريد الإلكتروني:</label>
+          <input 
+            type="email" 
+            required 
+            value={email} 
+            onChange={(e) => setEmail(e.target.value)} 
+            style={{ width: '100%', padding: '8px', marginTop: '5px' }}
+          />
+        </div>
+
+        <div style={{ marginBottom: '15px' }}>
+          <label>كلمة المرور:</label>
+          <input 
+            type="password" 
+            required 
+            value={password} 
+            onChange={(e) => setPassword(e.target.value)} 
+            style={{ width: '100%', padding: '8px', marginTop: '5px' }}
+          />
+        </div>
+
+        {message && <p style={{ color: 'red' }}>{message}</p>}
+
+        <button type="submit" disabled={loading} style={{ width: '100%', padding: '10px', background: '#0070f3', color: '#fff', border: 'none', cursor: 'pointer' }}>
+          {loading ? 'جاري التحميل...' : isSignUp ? 'إنشاء الحساب' : 'تسجيل الدخول'}
+        </button>
+      </form>
+
+      <button 
+        onClick={() => setIsSignUp(!isSignUp)} 
+        style={{ marginTop: '15px', background: 'none', border: 'none', color: '#0070f3', cursor: 'pointer' }}
+      >
+        {isSignUp ? 'لديك حساب بالفعل؟ سجل دخولك' : 'ليس لديك حساب؟ أنشئ حساباً جديداً'}
+      </button>
+    </div>
+  )
+}
+</file>
+
+<file path="src/lib/supabase.ts">
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co';
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key';
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+</file>
+
+<file path="src/middleware.ts">
+import { NextResponse, type NextRequest } from 'next/server';
+
+export function middleware(request: NextRequest) {
+  // الصفحات التي لا تحتاج حماية
+  const publicPaths = ['/', '/login'];
+  const pathname = request.nextUrl.pathname;
+
+  // اذا كانت الصفحة عامة، خليها تمر
+  if (publicPaths.includes(pathname)) {
+    return NextResponse.next();
+  }
+
+  // للصفحات المحمية، تحقق من الـ cookie
+  const token = request.cookies.get('sb-access-token');
+
+  // اذا ما فيه token، وجه لـ login
+  if (!token) {
+    return NextResponse.redirect(new URL('/login', request.url));
+  }
+
+  return NextResponse.next();
+}
+
+export const config = {
+  matcher: ['/dashboard/:path*', '/admin/:path*', '/courses/:path*', '/journal/:path*', '/ai-analyzer/:path*'],
+};
+</file>
+
+<file path="next.config.ts">
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+};
+
+export default nextConfig;
+</file>
+
+<file path="package.json">
+{
+  "name": "trading-academy",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@google/genai": "^2.18.0",
+    "@supabase/auth-helpers-nextjs": "^0.15.0",
+    "@supabase/ssr": "^0.12.4",
+    "@supabase/supabase-js": "^2.112.3",
+    "next": "16.3.2",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.2",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
+</file>
+
+<file path="src/app/admin/page.tsx">
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { supabase } from '@/lib/supabase'; // تم التصحيح: استيراد المتغير supabase المباشر
+
+interface Question {
+  id: string;
+  question: string;
+  options: string[];
+  correctAnswer: number;
+}
+
+interface Quiz {
+  passingScore: number;
+  questions: Question[];
+}
+
+interface Lesson {
+  id: string;
+  title: string;
+  videoUrl: string;
+}
+
+interface Section {
+  id: string;
+  title: string;
+  lessons: Lesson[];
+  quiz?: Quiz;
+}
+
+interface Course {
+  id: string;
+  title: string;
+  category: string;
+  sections: Section[];
+}
+
+// اكتب إيميلك الخاص بالأدمن هنا
+const ADMIN_EMAIL = "ahmadhajal047@gmail.com"; 
+
+export default function AdminDashboard() {
+  const router = useRouter();
+  const [loading, setLoading] = useState(true);
+  const [authorized, setAuthorized] = useState(false);
+
+  // التحقق من صلاحيات الأدمن عند فتح الصفحة
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        // تم التصحيح: استخدام كائن supabase المباشر
+        const { data: { user } } = await supabase.auth.getUser();
+
+        // 1. إذا لم يكن مسجلاً، وجهه لصفحة الدخول
+        if (!user) {
+          router.replace('/login');
+          return;
+        }
+
+        // 2. إذا لم يكن الإيميل مطابقاً لإيميل الأدمن، وجهه للداشبورد العادي
+        if (user.email !== ADMIN_EMAIL) {
+          router.replace('/dashboard');
+          return;
+        }
+
+        // المستخدم أدمن بالفعل
+        setAuthorized(true);
+      } catch (err) {
+        console.error("Auth check failed:", err);
+        router.replace('/login');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    checkAuth();
+  }, [router]);
+
+  const [courses, setCourses] = useState<Course[]>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('app_courses');
+      if (saved) {
+        try { 
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed)) return parsed;
+        } catch (e) {}
+      }
+    }
+    return [
+      {
+        id: '1',
+        title: 'كورس احتراف تداول الذهب والمؤشرات (SMC)',
+        category: 'تداول',
+        sections: [
+          {
+            id: 's1',
+            title: 'الفصل الأول: أساسيات كسر السيولة وهيكل السوق',
+            lessons: [
+              { id: 'l1', title: 'شرح مناطق الـ Order Block', videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ' }
+            ],
+            quiz: {
+              passingScore: 70,
+              questions: [
+                {
+                  id: 'q1',
+                  question: 'ما هو شرط كسر الهيكل الصاعد (BOS)؟',
+                  options: ['إغلاق شمعة أعلى آخر قمة', 'ملامسة خط الدعم', 'ارتفاع الرافعة المالية'],
+                  correctAnswer: 0
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('app_courses', JSON.stringify(courses));
+  }, [courses]);
+
+  const [newCourseTitle, setNewCourseTitle] = useState('');
+  const [activeCourseId, setActiveCourseId] = useState<string | null>(null);
+  const [activeSectionId, setActiveSectionId] = useState<string | null>(null);
+  const [modalType, setModalType] = useState<'section' | 'lesson' | 'quiz' | null>(null);
+
+  const [sectionTitleInput, setSectionTitleInput] = useState('');
+  const [lessonTitleInput, setLessonTitleInput] = useState('');
+  const [lessonUrlInput, setLessonUrlInput] = useState('');
+
+  // إدارة الأسئلة للاختبار
+  const [quizScore, setQuizScore] = useState<number>(70);
+  const [questionsList, setQuestionsList] = useState<Question[]>([]);
+  const [currentQText, setCurrentQText] = useState('');
+  const [currentOpt1, setCurrentOpt1] = useState('');
+  const [currentOpt2, setCurrentOpt2] = useState('');
+  const [currentOpt3, setCurrentOpt3] = useState('');
+  const [currentCorrect, setCurrentCorrect] = useState<number>(0);
+
+  const handleAddCourse = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newCourseTitle.trim()) return;
+    const newCourse: Course = {
+      id: Date.now().toString(),
+      title: newCourseTitle,
+      category: 'تداول',
+      sections: []
+    };
+    setCourses([...courses, newCourse]);
+    setNewCourseTitle('');
+  };
+
+  const handleAddSection = () => {
+    if (!sectionTitleInput.trim() || !activeCourseId) return;
+    setCourses(courses.map(course => {
+      if (course.id === activeCourseId) {
+        return {
+          ...course,
+          sections: [...course.sections, { id: Date.now().toString(), title: sectionTitleInput, lessons: [] }]
+        };
+      }
+      return course;
+    }));
+    setSectionTitleInput('');
+    setModalType(null);
+  };
+
+  const handleAddLesson = () => {
+    if (!lessonTitleInput.trim() || !activeCourseId || !activeSectionId) return;
+    setCourses(courses.map(course => {
+      if (course.id === activeCourseId) {
+        return {
+          ...course,
+          sections: course.sections.map(sec => {
+            if (sec.id === activeSectionId) {
+              return {
+                ...sec,
+                lessons: [...sec.lessons, { id: Date.now().toString(), title: lessonTitleInput, videoUrl: lessonUrlInput }]
+              };
+            }
+            return sec;
+          })
+        };
+      }
+      return course;
+    }));
+    setLessonTitleInput('');
+    setLessonUrlInput('');
+    setModalType(null);
+  };
+
+  const handleOpenQuizModal = (courseId: string, section: Section) => {
+    setActiveCourseId(courseId);
+    setActiveSectionId(section.id);
+    if (section.quiz) {
+      setQuizScore(section.quiz.passingScore || 70);
+      setQuestionsList(Array.isArray(section.quiz.questions) ? section.quiz.questions : []);
+    } else {
+      setQuizScore(70);
+      setQuestionsList([]);
+    }
+    setModalType('quiz');
+  };
+
+  const handleAddQuestionToList = () => {
+    if (!currentQText.trim() || !currentOpt1.trim() || !currentOpt2.trim() || !currentOpt3.trim()) return;
+    
+    const newQ: Question = {
+      id: Date.now().toString(),
+      question: currentQText,
+      options: [currentOpt1, currentOpt2, currentOpt3],
+      correctAnswer: currentCorrect
+    };
+
+    setQuestionsList([...questionsList, newQ]);
+    setCurrentQText('');
+    setCurrentOpt1('');
+    setCurrentOpt2('');
+    setCurrentOpt3('');
+    setCurrentCorrect(0);
+  };
+
+  const handleRemoveQuestion = (qId: string) => {
+    setQuestionsList(questionsList.filter(q => q.id !== qId));
+  };
+
+  const handleSaveQuiz = () => {
+    if (!activeCourseId || !activeSectionId || questionsList.length === 0) return;
+
+    setCourses(courses.map(course => {
+      if (course.id === activeCourseId) {
+        return {
+          ...course,
+          sections: course.sections.map(sec => {
+            if (sec.id === activeSectionId) {
+              return {
+                ...sec,
+                quiz: {
+                  passingScore: Number(quizScore),
+                  questions: questionsList
+                }
+              };
+            }
+            return sec;
+          })
+        };
+      }
+      return course;
+    }));
+
+    setModalType(null);
+  };
+
+  const resetAllData = () => {
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('app_courses');
+      window.location.reload();
+    }
+  };
+
+  // شاشة الانتظار أثناء التحقق من الهوية
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-slate-950 flex justify-center items-center text-emerald-400 font-sans">
+        <p className="animate-pulse text-lg">جاري التحقق من الصلاحيات...</p>
+      </div>
+    );
+  }
+
+  // منع عرض الصفحة إذا لم يكن أدمن
+  if (!authorized) return null;
+
+  return (
+    <div className="min-h-screen bg-slate-950 text-white p-6 md:p-10 font-sans" dir="rtl">
+      <div className="max-w-6xl mx-auto space-y-8">
+        
+        <div className="border-b border-slate-800 pb-5 flex justify-between items-center">
+          <div>
+            <h1 className="text-3xl font-bold text-emerald-400">لوحة تحكم أدمن التداول 📈</h1>
+            <p className="text-slate-400 mt-1">إدارة الكورسات، إنشاء اختبارات متعددة الأسئلة، وضبط نسبة الاجتياز</p>
+          </div>
+          <button 
+            onClick={resetAllData} 
+            className="bg-rose-600/20 text-rose-400 border border-rose-500/30 px-3 py-1.5 rounded-lg text-xs hover:bg-rose-600 hover:text-white transition-all"
+          >
+            🔄 إعادة ضبط البيانات القديمة
+          </button>
+        </div>
+
+        {/* إضافة كورس */}
+        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+          <h2 className="text-xl font-bold text-white mb-4">إنشاء كورس تداول جديد</h2>
+          <form onSubmit={handleAddCourse} className="flex gap-4">
+            <input
+              type="text"
+              placeholder="عنوان الكورس"
+              value={newCourseTitle}
+              onChange={(e) => setNewCourseTitle(e.target.value)}
+              className="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 focus:outline-none focus:border-emerald-500 text-white"
+            />
+            <button type="submit" className="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3 rounded-xl font-bold transition-all">
+              + إضافة الكورس
+            </button>
+          </form>
+        </div>
+
+        {/* الكورسات */}
+        <div className="space-y-6">
+          {courses.map((course) => (
+            <div key={course.id} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
+              <div className="flex justify-between items-center border-b border-slate-800 pb-4">
+                <h3 className="text-xl font-bold text-white">{course.title}</h3>
+                <button
+                  onClick={() => {
+                    setActiveCourseId(course.id);
+                    setModalType('section');
+                  }}
+                  className="bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 px-4 py-2 rounded-xl text-sm font-semibold hover:bg-emerald-600 hover:text-white"
+                >
+                  + إضافة فصل جديد
+                </button>
+              </div>
+
+              <div className="space-y-4">
+                {course.sections.map((sec) => {
+                  const qCount = sec.quiz && Array.isArray(sec.quiz.questions) ? sec.quiz.questions.length : 0;
+                  return (
+                    <div key={sec.id} className="bg-slate-950 border border-slate-800 rounded-xl p-5 space-y-3">
+                      <div className="flex justify-between items-center">
+                        <h4 className="font-bold text-lg text-emerald-300">{sec.title}</h4>
+                        <div className="flex gap-2">
+                          <button
+                            onClick={() => {
+                              setActiveCourseId(course.id);
+                              setActiveSectionId(sec.id);
+                              setModalType('lesson');
+                            }}
+                            className="text-xs bg-slate-800 hover:bg-slate-700 px-3 py-2 rounded-lg text-slate-200"
+                          >
+                            + إضافة فيديو
+                          </button>
+                          <button
+                            onClick={() => handleOpenQuizModal(course.id, sec)}
+                            className="text-xs bg-amber-500/10 text-amber-400 border border-amber-500/20 hover:bg-amber-500 hover:text-black px-3 py-2 rounded-lg font-semibold"
+                          >
+                            {sec.quiz ? `تعديل الاختبار (${qCount} أسئلة)` : '+ إضافة اختبار'}
+                          </button>
+                        </div>
+                      </div>
+
+                      <div className="pr-4 border-r-2 border-slate-800 space-y-2">
+                        {sec.lessons.map((lesson) => (
+                          <div key={lesson.id} className="text-sm text-slate-300 flex justify-between bg-slate-900/50 p-2 rounded-lg">
+                            <span>🎥 {lesson.title}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {sec.quiz && (
+                        <div className="bg-amber-950/20 border border-amber-500/20 p-3 rounded-lg text-xs text-amber-300 flex justify-between items-center">
+                          <span>📝 عدد أسئلة الاختبار: <strong>{qCount} أسئلة</strong></span>
+                          <span className="bg-amber-500/20 text-amber-300 px-2 py-1 rounded font-bold">
+                            نسبة النجاح المطلوبة: {sec.quiz.passingScore}%
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Modal الاختبار */}
+        {modalType === 'quiz' && (
+          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 w-full max-w-2xl space-y-5 max-h-[90vh] overflow-y-auto">
+              <h3 className="text-xl font-bold text-white border-b border-slate-800 pb-3">إعداد اختبار الفصل (أسئلة متعددة)</h3>
+
+              <div className="flex gap-4 items-center bg-slate-950 p-3 rounded-xl border border-slate-800">
+                <label className="text-sm text-slate-300 font-bold">نسبة النجاح المطلوبة للفصل:</label>
+                <input
+                  type="number"
+                  value={quizScore}
+                  onChange={(e) => setQuizScore(Number(e.target.value))}
+                  className="w-20 bg-slate-900 border border-slate-700 rounded-lg p-2 text-center text-white font-bold"
+                />
+                <span className="text-slate-400">%</span>
+              </div>
+
+              {/* الأسئلة */}
+              <div className="space-y-2">
+                <h4 className="text-sm font-bold text-emerald-400">الأسئلة المضافة ({questionsList.length}):</h4>
+                {questionsList.map((q, idx) => (
+                  <div key={q.id} className="bg-slate-950 p-3 rounded-xl border border-slate-800 flex justify-between items-center text-xs">
+                    <div>
+                      <p className="font-bold text-white">{idx + 1}. {q.question}</p>
+                      <p className="text-slate-400 mt-1">الخيار الصحيح: {q.options[q.correctAnswer]}</p>
+                    </div>
+                    <button onClick={() => handleRemoveQuestion(q.id)} className="text-rose-400 hover:text-rose-300 font-bold">حذف</button>
+                  </div>
+                ))}
+              </div>
+
+              {/* إضافة سؤال */}
+              <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
+                <h4 className="text-sm font-bold text-amber-400">+ إضافة سؤال جديد للاختبار</h4>
+                <input
+                  type="text"
+                  placeholder="نص السؤال"
+                  value={currentQText}
+                  onChange={(e) => setCurrentQText(e.target.value)}
+                  className="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-sm text-white"
+                />
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                  <input type="text" placeholder="الخيار 1" value={currentOpt1} onChange={(e) => setCurrentOpt1(e.target.value)} className="bg-slate-900 border border-slate-800 rounded-lg p-2 text-xs text-white" />
+                  <input type="text" placeholder="الخيار 2" value={currentOpt2} onChange={(e) => setCurrentOpt2(e.target.value)} className="bg-slate-900 border border-slate-800 rounded-lg p-2 text-xs text-white" />
+                  <input type="text" placeholder="الخيار 3" value={currentOpt3} onChange={(e) => setCurrentOpt3(e.target.value)} className="bg-slate-900 border border-slate-800 rounded-lg p-2 text-xs text-white" />
+                </div>
+                <div className="flex justify-between items-center pt-2">
+                  <div className="flex gap-2 items-center text-xs text-slate-300">
+                    <span>الإجابة الصحيحة:</span>
+                    <select value={currentCorrect} onChange={(e) => setCurrentCorrect(Number(e.target.value))} className="bg-slate-900 border border-slate-800 rounded p-1">
+                      <option value={0}>الخيار 1</option>
+                      <option value={1}>الخيار 2</option>
+                      <option value={2}>الخيار 3</option>
+                    </select>
+                  </div>
+                  <button onClick={handleAddQuestionToList} className="bg-amber-600 hover:bg-amber-500 text-white text-xs px-4 py-2 rounded-lg font-bold">
+                    إضافة السؤال للاختبار
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex justify-end gap-3 pt-4 border-t border-slate-800">
+                <button onClick={() => setModalType(null)} className="px-4 py-2 bg-slate-800 rounded-xl text-xs text-slate-300">إلغاء</button>
+                <button onClick={handleSaveQuiz} className="px-6 py-2 bg-emerald-600 hover:bg-emerald-500 font-bold text-white rounded-xl text-xs">
+                  حفظ الاختبار بالكامل
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Modal الفصول والدروس */}
+        {modalType === 'section' && (
+          <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50">
+            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 w-full max-w-lg space-y-4">
+              <h3 className="text-xl font-bold text-white">إضافة فصل جديد</h3>
+              <input type="text" placeholder="عنوان الفصل" value={sectionTitleInput} onChange={(e) => setSectionTitleInput(e.target.value)} className="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-white" />
+              <div className="flex justify-end gap-2">
+                <button onClick={() => setModalType(null)} className="px-4 py-2 bg-slate-800 rounded-lg text-slate-300">إلغاء</button>
+                <button onClick={handleAddSection} className="px-4 py-2 bg-emerald-600 rounded-lg text-white font-bold">إضافة</button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {modalType === 'lesson' && (
+          <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50">
+            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 w-full max-w-lg space-y-4">
+              <h3 className="text-xl font-bold text-white">إضافة فيديو درس</h3>
+              <input type="text" placeholder="عنوان الدرس" value={lessonTitleInput} onChange={(e) => setLessonTitleInput(e.target.value)} className="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-white" />
+              <input type="text" placeholder="رابط الفيديو (YouTube Embed)" value={lessonUrlInput} onChange={(e) => setLessonUrlInput(e.target.value)} className="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-white" />
+              <div className="flex justify-end gap-2">
+                <button onClick={() => setModalType(null)} className="px-4 py-2 bg-slate-800 rounded-lg text-slate-300">إلغاء</button>
+                <button onClick={handleAddLesson} className="px-4 py-2 bg-emerald-600 rounded-lg text-white font-bold">إضافة الدرس</button>
+              </div>
+            </div>
+          </div>
+        )}
+
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="src/app/page.tsx">
+'use client';
+
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { supabase } from '@/lib/supabase';
+import { useRouter } from 'next/navigation';
+
+export default function HomePage() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
+
+  useEffect(() => {
+    async function checkUser() {
+      const { data: { user } } = await supabase.auth.getUser();
+      setIsLoggedIn(!!user);
+      setLoading(false);
+    }
+    checkUser();
+  }, []);
+
+  if (loading) {
+    return <div className="min-h-screen bg-slate-950"></div>;
+  }
+
+  return (
+    <div className="min-h-screen bg-slate-950 text-white font-sans dir-rtl" dir="rtl">
+      
+      {/* الهيدر العلوي */}
+      <header className="border-b border-slate-800 bg-slate-900/50 backdrop-blur-md sticky top-0 z-40">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center font-bold text-slate-950 text-xl shadow-lg shadow-emerald-500/20">
+              📈
+            </div>
+            <div>
+              <h1 className="font-bold text-lg text-white tracking-wide">أكاديمية المتداولين</h1>
+              <p className="text-xs text-emerald-400 font-medium">Trading Academy</p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3">
+            {isLoggedIn ? (
+              <>
+                <Link 
+                  href="/dashboard" 
+                  className="px-4 py-2 text-sm font-semibold text-emerald-400 hover:text-emerald-300 transition-colors"
+                >
+                  لوحة التحكم
+                </Link>
+                <button
+                  onClick={async () => {
+                    await supabase.auth.signOut();
+                    router.push('/');
+                    setIsLoggedIn(false);
+                  }}
+                  className="px-5 py-2.5 text-sm font-bold bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-xl transition"
+                >
+                  تسجيل الخروج
+                </button>
+              </>
+            ) : (
+              <>
+                <Link 
+                  href="/login" 
+                  className="px-4 py-2 text-sm font-semibold text-slate-300 hover:text-white transition-colors"
+                >
+                  تسجيل الدخول
+                </Link>
+                <Link 
+                  href="/login" 
+                  className="px-5 py-2.5 text-sm font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 rounded-xl shadow-lg shadow-emerald-500/20 transition-all transform hover:-translate-y-0.5"
+                >
+                  إنشاء حساب
+                </Link>
+              </>
+            )}
+          </div>
+
+        </div>
+      </header>
+
+      {/* المحتوى الرئيسي */}
+      <main className="max-w-7xl mx-auto px-6 py-16 text-center space-y-8">
+        
+        <div className="inline-block bg-emerald-500/10 border border-emerald-500/20 rounded-full px-4 py-1.5 text-emerald-400 text-sm font-medium mb-4">
+          ✨ المنصة الأولى لتعليم تداول الأسواق المالية
+        </div>
+
+        <h2 className="text-4xl md:text-6xl font-extrabold leading-tight text-white max-w-4xl mx-auto">
+          احترف تداول الأسواق المالية مع <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">أفضل الكورسات المتقدمة</span>
+        </h2>
+
+        <p className="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">
+          تعلم استراتيجيات SMC، تحليل السيولة، وإدارة المخاطر مع اختبارات تفاعلية ومتابعة مستمرة لتطوير مهاراتك في التداول.
+        </p>
+
+        <div className="pt-4 flex justify-center gap-4">
+          <Link 
+            href={isLoggedIn ? "/dashboard" : "/login"}
+            className="px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-lg rounded-2xl shadow-xl shadow-emerald-500/20 transition-all transform hover:-translate-y-1"
+          >
+            {isLoggedIn ? "اذهب للدرس" : "ابدأ التعلم الآن"} 🚀
+          </Link>
+        </div>
+
+      </main>
+
+    </div>
+  );
+}
+</file>
+
+<file path="tsconfig.json">
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "noImplicitAny": false,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
+</file>
+
+<file path="src/app/layout.tsx">
+import './globals.css';
+
+export const metadata = {
+  title: 'منصة تداول المحترفين',
+  description: 'منصة التداول الذكية والكورسات المتقدمة',
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="ar" dir="rtl">
+      <body className="bg-slate-950 text-white font-sans antialiased">
+        <main>{children}</main>
+      </body>
+    </html>
+  );
+}
+</file>
+
+</files>

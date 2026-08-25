@@ -1,24 +1,40 @@
+import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 
-export function middleware(request: NextRequest) {
-  // الصفحات التي لا تحتاج حماية
+export async function middleware(request: NextRequest) {
+  let supabaseResponse = NextResponse.next({ request });
+
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return request.cookies.getAll();
+        },
+        setAll(cookiesToSet) {
+          cookiesToSet.forEach(({ name, value }) =>
+            request.cookies.set(name, value)
+          );
+          supabaseResponse = NextResponse.next({ request });
+          cookiesToSet.forEach(({ name, value, options }) =>
+            supabaseResponse.cookies.set(name, value, options)
+          );
+        },
+      },
+    }
+  );
+
+  const { data: { user } } = await supabase.auth.getUser();
+
   const publicPaths = ['/', '/login'];
   const pathname = request.nextUrl.pathname;
 
-  // اذا كانت الصفحة عامة، خليها تمر
-  if (publicPaths.includes(pathname)) {
-    return NextResponse.next();
-  }
-
-  // للصفحات المحمية، تحقق من الـ cookie
-  const token = request.cookies.get('sb-access-token');
-
-  // اذا ما فيه token، وجه لـ login
-  if (!token) {
+  if (!user && !publicPaths.includes(pathname)) {
     return NextResponse.redirect(new URL('/login', request.url));
   }
 
-  return NextResponse.next();
+  return supabaseResponse;
 }
 
 export const config = {

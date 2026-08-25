@@ -32,13 +32,12 @@ export default function CoursesPage() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-6 md:p-10 dir-rtl" dir="rtl">
-      {/* الهيدر وزر العودة */}
       <div className="max-w-6xl mx-auto mb-10 flex justify-between items-center">
         <div>
           <h1 className="text-3xl font-bold text-white mb-2">الكورسات التعليمية 📚</h1>
           <p className="text-slate-400 text-sm">اختر الدورات التدريبية وابدأ في تطوير مهاراتك بالتداول.</p>
         </div>
-        <Link 
+        <Link
           href="/dashboard"
           className="bg-slate-900 border border-slate-800 text-slate-300 px-4 py-2 rounded-xl text-sm hover:bg-slate-800 transition"
         >
@@ -46,7 +45,6 @@ export default function CoursesPage() {
         </Link>
       </div>
 
-      {/* قائمة الكورسات */}
       <div className="max-w-6xl mx-auto">
         {loading ? (
           <div className="text-center py-20 text-slate-500 animate-pulse">جاري تحميل الكورسات...</div>
@@ -65,12 +63,12 @@ export default function CoursesPage() {
                     <h3 className="text-lg font-bold text-white mt-3 mb-2">{course.title}</h3>
                     <p className="text-slate-400 text-sm line-clamp-2 mb-6">{course.description}</p>
                   </div>
-                  <Link 
-  href={`/courses/${course.id}`}
-  className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-2.5 rounded-xl transition text-sm text-center block"
->
-  ابدأ الدورة الآن
-</Link>
+                  <Link
+                    href={`/courses/${course.id}`}
+                    className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-2.5 rounded-xl transition text-sm text-center block"
+                  >
+                    ابدأ الدورة الآن
+                  </Link>
                 </div>
               </div>
             ))}
