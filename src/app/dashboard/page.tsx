@@ -8,19 +8,40 @@ import Link from 'next/link';
 export default function DashboardPage() {
   const [userEmail, setUserEmail] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const [totalCourses, setTotalCourses] = useState(0);
+  const [completedCourses, setCompletedCourses] = useState(0);
+  const [totalTrades, setTotalTrades] = useState(0);
   const router = useRouter();
 
   useEffect(() => {
-    async function getUser() {
+    async function loadDashboard() {
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) {
         router.push('/login');
-      } else {
-        setUserEmail(user.email ?? null);
+        return;
       }
+      setUserEmail(user.email ?? null);
+
+      const { count: coursesCount } = await supabase
+        .from('courses')
+        .select('*', { count: 'exact', head: true });
+
+      const { count: completedCount } = await supabase
+        .from('course_completions')
+        .select('*', { count: 'exact', head: true })
+        .eq('user_id', user.id);
+
+      const { count: tradesCount } = await supabase
+        .from('trades')
+        .select('*', { count: 'exact', head: true })
+        .eq('user_id', user.id);
+
+      setTotalCourses(coursesCount ?? 0);
+      setCompletedCourses(completedCount ?? 0);
+      setTotalTrades(tradesCount ?? 0);
       setLoading(false);
     }
-    getUser();
+    loadDashboard();
   }, [router]);
 
   const handleLogout = async () => {
@@ -38,7 +59,6 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col md:flex-row font-sans dir-rtl" dir="rtl">
-      {/* القائمة الجانبية */}
       <aside className="w-full md:w-64 bg-slate-900 border-b md:border-b-0 md:border-l border-slate-800 p-6 flex flex-col justify-between">
         <div>
           <div className="flex items-center gap-3 mb-8">
@@ -82,7 +102,6 @@ export default function DashboardPage() {
         </button>
       </aside>
 
-      {/* المحتوى الرئيسي */}
       <main className="flex-1 p-6 md:p-10 overflow-y-auto">
         <header className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
           <div>
@@ -99,16 +118,15 @@ export default function DashboardPage() {
           )}
         </header>
 
-        {/* كروت الإحصائيات */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
             <span className="text-xs text-slate-400 block mb-2">الكورسات المكتملة</span>
-            <span className="text-3xl font-bold text-white">0 / 4</span>
+            <span className="text-3xl font-bold text-white">{completedCourses} / {totalCourses}</span>
           </div>
 
           <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
             <span className="text-xs text-slate-400 block mb-2">الصفقات المسجلة</span>
-            <span className="text-3xl font-bold text-white">0 صفقة</span>
+            <span className="text-3xl font-bold text-white">{totalTrades} صفقة</span>
           </div>
 
           <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
@@ -117,7 +135,6 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        {/* كارت بدء التعلم */}
         <div className="bg-gradient-to-r from-indigo-900/40 to-slate-900 border border-indigo-500/30 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h2 className="text-xl font-bold text-white mb-2">ابدأ رحلتك التعليمية الآن 🚀</h2>

@@ -113,6 +113,15 @@ export default function StudentCoursesPage() {
     setUserAnswers({ ...userAnswers, [currentQIndex]: optionIndex });
   };
 
+  const markCourseCompleted = async () => {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user || !courseId) return;
+    await supabase.from('course_completions').upsert(
+      { user_id: user.id, course_id: courseId },
+      { onConflict: 'user_id,course_id' }
+    );
+  };
+
   const handleSubmitQuiz = () => {
     if (!activeSection?.quiz || !Array.isArray(activeSection.quiz.questions)) return;
 
@@ -137,6 +146,9 @@ export default function StudentCoursesPage() {
         if (!unlockedSections.includes(nextSectionId)) {
           setUnlockedSections([...unlockedSections, nextSectionId]);
         }
+      } else {
+        // هاد كان آخر فصل بالكورس، يعني المستخدم خلّص الكورس بالكامل
+        markCourseCompleted();
       }
     }
   };
